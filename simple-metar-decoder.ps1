@@ -11,7 +11,11 @@ $queryCache = $true
 
 ######################################################################################
 # Set Directory
-$rootDir = "Z:\PowerShell Scripts\PowerShell\"
+$rootDir = "C:\"
+if((Test-Path "$rootDir\Metar") -eq $false){
+    Write-Output "Creating Metar Folder on $rootDir"
+    New-Item -Path "$rootDir\Metar" -ItemType Directory
+}
 $metarDir = Resolve-Path (Join-Path $rootDir 'Metar')
 
 ######################################################################################
